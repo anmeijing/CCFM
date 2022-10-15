@@ -17,7 +17,7 @@
 # One step get prediction phenotype
 one_predict_pheno <- function(train_pheno, train_geno, test_geno, CCN, chunk, method, CV, num_bootstrap=50){
 	set.seed(100)
-  if (class(train_geno) == "big.matrix"){
+  if (class(train_geno)[1] == "big.matrix"){
 	CC <- CCmadeBM(bX_train = train_geno@address,bX_test = test_geno@address,by_train = train_pheno, chunk=chunk, cc_num=CCN)
 	}else{
 	CC <- CCmadeM(y_train = train_pheno, X_train = train_geno, X_test=test_geno, chunk=chunk, cc_num=CCN)}
@@ -140,7 +140,10 @@ one_predict_pheno <- function(train_pheno, train_geno, test_geno, CCN, chunk, me
 
 # building CCM
 CCM <- function(train_pheno, train_geno, test_geno, CCN, chunk){
-  CC <- CCmadeM(y_train = train_pheno, X_train = train_geno, X_test=test_geno, chunk=chunk, cc_num=CCN)
+   if (class(train_geno)[1] == "big.matrix"){
+	CC <- CCmadeBM(bX_train = train_geno@address,bX_test = test_geno@address,by_train = train_pheno, chunk=chunk, cc_num=CCN)
+	}else{
+	CC <- CCmadeM(y_train = train_pheno, X_train = train_geno, X_test=test_geno, chunk=chunk, cc_num=CCN)}
   CCname <- unlist(lapply(1:CCN, function(x){paste0("CC", paste0(x, collapse=""), sep = "")}))
   colnames(CC$CCtrain) <- CCname
   colnames(CC$CCtest) <- CCname
