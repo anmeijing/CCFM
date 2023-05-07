@@ -34,7 +34,7 @@ CCMat <- CCM(train_pheno=y.train, train_geno=X.train, test_geno=X.test, CCN=10, 
 pheno <- predict_pheno(method='SVM_bag',CCM=CCMat, train_pheno=y.train, train_geno=X.train, test_geno=X.test)  
 ### OR   
 phenotype <- one_predict_pheno(train_pheno=y.train, train_geno=X.train, test_geno=X.test, CCN=5, chunk=1, method="SVM_bag", CV="OFF")  
-####there are some difference between pheno and phenotype because of sampling.  
+#### there are some difference between pheno and phenotype because of sampling.  
 
 ### LM_Max predict phenotype  
 CCMat <- CCM(train_pheno=y.train, train_geno=X.train, test_geno=X.test, CCN=20, chunk=1)  
