@@ -1,4 +1,4 @@
-# CCFM Compressed Component with Flexible Modeling
+# CCFM：Compressed Component with Flexible Modeling
 # example  
 library(Rcpp)  
 library(RcppEigen)  
