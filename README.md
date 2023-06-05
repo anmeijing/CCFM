@@ -15,7 +15,7 @@ y.test <- Xtt[testIndexes,1]
 X.test <- Xtt[testIndexes,-1]  
 y.train <- Xtt[-testIndexes,1]  
 X.train <- Xtt[-testIndexes,-1]  
-BX.train <- as.big.matrix(X.train)
+BX.train <- as.big.matrix(X.train)  
 BX.test <- as.big.matrix(X.test)
 
 ### biuld K=20 CCM  
