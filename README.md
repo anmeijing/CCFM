@@ -3,7 +3,8 @@
 library(Rcpp)  
 library(RcppEigen)  
 library(kernlab)  
-load("ID1000.Rdata")  
+load("ID1000.Rdata") 
+library(bigmemory)
 sourceCpp("cppmade.cpp")  
 source("predict.R")  
 
@@ -14,8 +15,14 @@ y.test <- Xtt[testIndexes,1]
 X.test <- Xtt[testIndexes,-1]  
 y.train <- Xtt[-testIndexes,1]  
 X.train <- Xtt[-testIndexes,-1]  
+BX.train <- as.big.matrix(X.train)
+BX.test <- as.big.matrix(X.test)
+
 ### biuld K=20 CCM  
+#### the type of genotype is 'matrix'
 CCMat <- CCM(train_pheno=y.train, train_geno=X.train, test_geno=X.test, CCN=20, chunk=1)  
+#### the type of genotype is 'big.matrix'
+CCMat <- CCM(train_pheno=y.train, train_geno=BX.train, test_geno=BX.test, CCN=20, chunk=1) 
 
 ### LM5 predict phenotype  
 CCMat <- CCM(train_pheno=y.train, train_geno=X.train, test_geno=X.test, CCN=5, chunk=1)  
