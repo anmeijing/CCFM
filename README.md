@@ -3,7 +3,7 @@
 library(Rcpp)  
 library(RcppEigen)  
 library(kernlab)  
-load("ID1000.Rdata") 
+load("ID1000.Rdata")  
 library(bigmemory)  
 sourceCpp("cppmade.cpp")  
 source("predict.R")  
