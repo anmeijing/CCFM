@@ -4,8 +4,8 @@ Compressed Components with Flexible Modeling for genomic prediction
 ### prepared the data
 library(CCFM)  
 library(bigmemory)  
-fpath <- system.file("extdata", "ID1000.RDATA", package="CCFM", mustWork = TRUE)
-load(fpath)
+fpath <- system.file("extdata", "ID1000.RDATA", package="CCFM", mustWork = TRUE)  
+load(fpath)  
 ind <- dim(Xtt)[1]  
 set.seed(100)  
 testIndexes <- sample(1:ind,size = ind*0.2,replace = FALSE)  
