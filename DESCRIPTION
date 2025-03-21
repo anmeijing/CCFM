@@ -1,0 +1,17 @@
+Package: CCFM
+Type: Package
+Title: Compressed Components with Flexible Modeling for genomic
+        prediction
+Version: 0.1.0
+Author: Mengjin Zhu and Meijing An
+Maintainer: Mengjin Zhu <zhumengjin@mail.hzau.edu.cn>
+Description: CCFM can handle big data sets, and provides a powerful alternative tool for genomic prediction or other genomic utilizations.
+License: GPL
+Encoding: UTF-8
+Imports: RcppEigen, kernlab, Rcpp
+LinkingTo: Rcpp, RcppArmadillo, bigmemory, BH
+Depends: R (>= 4.2.1.0)
+URL: https://github.com/anmeijing/CCFM
+RoxygenNote: 7.3.2
+NeedsCompilation: yes
+Packaged: 2024-10-14 05:38:57 UTC; User
