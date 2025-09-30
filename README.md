@@ -8,7 +8,7 @@ library(bigmemory)
 fpath <- system.file("extdata", "ID1000.RDATA", package="CCFM", mustWork = TRUE)  
 load(fpath)  
 ind <- dim(Xtt)[1]  
-set.seed(100)  
+set.seed(99)  
 testIndexes <- sample(1:ind,size = ind*0.2,replace = FALSE)  
 y.test <- Xtt[testIndexes,1]  
 X.test <- Xtt[testIndexes,-1]  
